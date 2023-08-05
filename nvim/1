@@ -1,0 +1,32 @@
+  ~/.config/nvim
+   lua
+  │  Snippet               ★ 
+  │  astronvim              
+  │  plugins
+  │ │  configs
+  │ │  alpha.lua
+  │ │  anyline.lua        ★ 
+  │ │  cmp.lua
+  │ │  colorscheme.lua     ★ 
+  │ │  compile-nvim.lua    ★ 
+  │ │  core.lua
+  │ │  dap.lua
+  │ │  git.lua
+  │ │  heirline.lua
+  │ │  lsp.lua
+  │ │  luasnip.lua         ★ 
+  │ │  mason.lua
+  │ │  neo-tree.lua
+  │ │  python.lua          ★ 
+  │ │  telescope.lua
+  │ │  treesitter.lua
+  │ │  ui.lua
+  │ └  vimtex.lua          ★ 
+  │  resession
+  │ └  extensions
+  └  lazy_snapshot.lua
+   LICENSE
+  󰈙 config.ld
+   init.lua              ✗ 
+  󰈙 q
+  (7 hidden items)

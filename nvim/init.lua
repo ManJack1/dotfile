@@ -1,59 +1,38 @@
--- GENERAL
-require "user.options"
-require "user.keymaps"
-require "user.plugins"
-require "user.autocommands"
-require "user.colorscheme"
+if vim.loader and vim.fn.has "nvim-0.9.1" == 1 then vim.loader.enable() end
 
--- PLUGINS
+for _, source in ipairs {
+  "astronvim.bootstrap",
+  "astronvim.options",
+  "astronvim.lazy",
+  "astronvim.autocmds",
+  "astronvim.mappings",
+} do
+  local status_ok, fault = pcall(require, source)
+  if not status_ok then vim.api.nvim_err_writeln("Failed to load " .. source .. "\n\n" .. fault) end
+end
 
-require "user.autopairs"
-require "user.comment"
-require "user.impatient"
-require "user.surround"
-require "user.yanky"
-require "user.undotree"
+if astronvim.default_colorscheme then
+  if not pcall(vim.cmd.colorscheme, astronvim.default_colorscheme) then
+    require("astronvim.utils").notify(
+      ("Error setting up colorscheme: `%s`"):format(astronvim.default_colorscheme),
+      vim.log.levels.ERROR
+    )
+  end
+end
 
--- Mappings
-require "user.whichkey"
+vim.cmd.colorscheme "catppuccin"
 
--- Terminal
-require "user.toggleterm"
 
--- File Management
-require "user.nvim-tree"
-require "user.sessions"
-
--- Appearance
-require "user.bufferline"
-require "user.lualine"
-require "user.indentline"
-require "user.alpha"
-require "user.illuminate"
-
--- Autocomplete
-require "user.cmp"
-
--- LaTeX
-require "user.vimtex"
-
--- Markdown
-require "user.autolist"
-
--- Snippets
-require "user.luasnip"
-
--- Telescope
-require "user.telescope"
-require "user.dressing"
-
--- Treesitter
-require "user.treesitter"
-
--- Git
-require "user.gitsigns"
+require("astronvim.utils").conditional_func(astronvim.user_opts("transparent", nil, false), true)
 
 
 
+vim.api.nvim_set_hl(0, "CmpItemKindCopilot", { fg = "#6CC644" })
 
 
+require("notify").setup({
+  background_colour = "#000000",
+}
+)
+
+require("astronvim.utils").conditional_func(astronvim.user_opts("polish", nil, false), true)

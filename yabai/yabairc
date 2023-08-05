@@ -1,0 +1,92 @@
+#!/usr/bin/env sh
+
+sudo yabai --load-sa
+yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+
+# global settings
+yabai -m config mouse_follows_focus off
+yabai -m config focus_follows_mouse off
+yabai -m config window_origin_display default
+yabai -m config window_placement second_child
+yabai -m config window_topmost off
+yabai -m config window_shadow float
+yabai -m config window_opacity on
+yabai -m config window_opacity_duration 0.15
+yabai -m config active_window_opacity 0.95
+yabai -m config normal_window_opacity 0.85
+yabai -m config window_border off
+yabai -m config window_border_width 4
+yabai -m config active_window_border_color 0xff8CABC8
+yabai -m config normal_window_border_color 0xff2a2f38
+yabai -m config insert_feedback_color 0xff9dd274
+yabai -m config split_ratio 0.50
+yabai -m config auto_balance off
+yabai -m config mouse_modifier alt
+yabai -m config mouse_action1 move
+yabai -m config mouse_action2 resize
+yabai -m config mouse_drop_action swap
+yabai -m config external_bar all:53:0
+yabai -m config window_border_blur on
+
+
+yabai -m config window_border off
+
+
+# Disable borders for all Slack windows that are not standard windows.
+yabai -m rule--add app=^Slack$ subrole!=AXStandardWindow border=off
+
+# signal with sketchybar
+yabai -m signal --add event=window_focused action="sketchybar --trigger window_focus"
+yabai -m signal --add event=window_created action="sketchybar --trigger windows_on_spaces"
+yabai -m signal --add event=window_destroyed action="sketchybar --trigger windows_on_spaces"
+
+# general space settings
+yabai -m config layout bsp
+# yabai -m config top_padding 5
+yabai -m config bottom_padding 10
+yabai -m config left_padding 8
+yabai -m config right_padding 8
+yabai -m config window_gap 8
+# yabai -m config window_animation_duration    0.00
+
+yabai -m rule --add app="^iStat*" sticky=on layer=above manage=off border=off
+yabai -m rule --add app="^System Preferences*" manage=off
+
+# disable specific apps
+yabai -m rule --add app="^System Settings$" manage=off
+yabai -m rule --add app="^Calculator$" manage=off
+yabai -m rule --add app="^Preview$" manage=off
+yabai -m rule --add app="^Karabiner-Elements$" manage=off
+yabai -m rule --add app="^QuickTime Player$" manage=off
+yabai -m rule --add app="^WeChat$" manage=off
+yabai -m rule --add app="^HapiGo$" manage=off
+yabai -m rule --add app="^360压缩大师$" manage=off
+yabai -m rule --add app="^Font Book$" manage=off
+yabai -m rule --add app="^NeatDownloadManager$" manage=off
+yabai -m rule --add app="^Tencent Lemon$" manage=off
+yabai -m rule --add app="^QQ音乐$" manage=off
+yabai -m rule --add app="^TextEdit$" manage=off
+yabai -m rule --add app="^哔哩哔哩$" manage=off  
+yabai -m rule --add app="^Spotify$" manage=off
+yabai -m rule --add app="^Alfred Preferences$" manage=off
+yabai -m rule --add app="^Discord$" manage=off
+# yabai -m rule --add app="^TencentMeeting$" manage=off
+
+
+#terminal for yabai
+# yabai -m rule --add app="iTerm2" manage=on
+
+# floating windows are always on top (default: off)
+yabai -m config window_topmost on
+
+# modify window shadows (default: on, options: on, off, float)
+# example: show shadows only for floating windows
+yabai -m config window_shadow float
+
+# window opacity (default: off)
+# example: render all unfocused windows with 90% opacity
+yabai -m config window_opacity on
+yabai -m config active_window_opacity 1.0
+yabai -m config normal_window_opacity 0.9
+
+echo "yabai configuration loaded.."

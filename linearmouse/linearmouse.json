@@ -1,0 +1,37 @@
+{
+  "$schema" : "https:\/\/app.linearmouse.org\/schema\/0.7.3",
+  "schemes" : [
+    {
+      "pointer" : {
+        "acceleration" : 0,
+        "speed" : 0.44,
+        "disableAcceleration" : false
+      },
+      "if" : {
+        "device" : {
+          "productName" : "MX Master 2S",
+          "serialNumber" : "26D533C645CBB072",
+          "productID" : "0xb019",
+          "category" : "mouse",
+          "vendorID" : "0x46d"
+        }
+      },
+      "scrolling" : {
+        "distance" : 3
+      }
+    },
+    {
+      "pointer" : {
+        "speed" : 0.1
+      },
+      "if" : {
+        "device" : {
+          "productName" : "USB Receiver",
+          "productID" : "0xc53f",
+          "category" : "mouse",
+          "vendorID" : "0x46d"
+        }
+      }
+    }
+  ]
+}

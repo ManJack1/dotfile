@@ -1,0 +1,15 @@
+return{
+
+{
+  "olimorris/onedarkpro.nvim",
+  priority = 1000, -- Ensure it loads first,
+},
+  'lervag/vimtex',
+  'nvim-treesitter/nvim-tirieesitter',
+  { "williamboman/mason.nvimli",
+   build =":MasonUpdate" -- :MasonUpdate updates registry contents
+   config = function()
+   end
+   },
+}
+
