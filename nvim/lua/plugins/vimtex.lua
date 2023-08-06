@@ -8,9 +8,9 @@ return {
       group = vim.api.nvim_create_augroup("vimtex_mapping_descriptions", { clear = true }),
       pattern = "tex",
       callback = function(event)
-        local wk = require "which-key"
+        local wk = require("which-key")
         local opts = {
-          mode = "n",         -- NORMAL mode
+          mode = "n", -- NORMAL mode
           buffer = event.buf, -- Specify a buffer number for buffer local mappings to show only in tex buffers
         }
         local mappings = {
@@ -106,11 +106,10 @@ return {
   end,
 
   config = function()
-    vim.api.nvim_command('filetype plugin indent on')
-    vim.api.nvim_command('syntax enable')
-    vim.g.vimtex_view_method = 'skim'
-    vim.g.vimtex_compiler_method = 'latexmk'
+    vim.api.nvim_command("filetype plugin indent on")
+    vim.api.nvim_command("syntax enable")
+    vim.g.vimtex_view_method = "skim"
+    vim.g.vimtex_compiler_method = "latexmk"
     vim.g.maplocalleader = "m"
-  end
-
+  end,
 }
