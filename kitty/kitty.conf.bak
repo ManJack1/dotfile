@@ -40,7 +40,7 @@ scrollback_lines 2000
 
 allow_remote_control yes
 
-include current-theme.conf
+include ./gruvbox_dark.conf
 
 #shell change into fish
 shell /opt/homebrew/bin/fish 
@@ -49,5 +49,4 @@ shell /opt/homebrew/bin/fish
 
 # BEGIN_KITTY_THEME
 # Gruvbox Dark Hard
-include current-theme.conf
 # END_KITTY_THEME
