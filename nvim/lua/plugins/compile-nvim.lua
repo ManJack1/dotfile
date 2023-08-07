@@ -23,4 +23,8 @@ return {
   },
   cmd = { "CompilerOpen", "CompilerToggleResults" },
   opts = {},
+  keys = {
+    { "mm", "<cmd>CompilerOpen<cr>", desc = "CompilerOpen" },
+    { "mt", "<cmd>CompilerToggleResults<cr>", desc = "CompilerToggleResults" },
+  },
 }
